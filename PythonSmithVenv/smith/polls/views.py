@@ -1,7 +1,8 @@
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from polls.models import Users
+from .form import PostCreateForm 
 
 
 def index(request):
@@ -40,4 +41,15 @@ def  profile(request):
     new_user= Users(first_name=firstName,middle_name= middleName,  last_name= lastName,username= userName, email=email, password=password)
     new_user.save()
     return render(request,"profile.html",context)
-    pass
+    
+def post_form(request):
+    if request.method == "POST":
+        form = PostCreateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("createprofile")
+    else:
+        form = PostCreateForm()
+    return render (request, "createPost.html", context={"form":form})
+
+
