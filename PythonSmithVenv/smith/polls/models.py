@@ -8,11 +8,11 @@ class Users(models.Model):
     password = models.CharField(max_length=50)
     email = models.CharField(max_length=20 )
 
-# class Post(models.Model):
-#     posted_by = models.CharField(max_length=30)
-#     post_content = models.CharField(max_length=20, required=True)
-#     publish_date = models.CharField(max_length=30)
-#     comments = models.CharField(max_length=20)
+class Post(models.Model):
+    posted_by = models.CharField(max_length=30)
+    post_content = models.CharField(max_length=20)
+    publish_date = models.CharField(max_length=30)
+    comments = models.CharField(max_length=20)
 
 # class Post(models.Model):
 #     commented_by = models.CharField(max_length=30)
