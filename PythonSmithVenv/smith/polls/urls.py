@@ -8,5 +8,6 @@ urlpatterns = [
     path("pagal", views.new_data, name="services"),
     path("form",views.form,name="form" ),
     path("profile",views.profile, name= "profile"),
-    path("createprofile",views.post_form, name= "createPost")
+    path("createprofile",views.post_form, name= "createPost"),
+    path("post",views.PostListView.as_view(), name= "PostList")
 ]

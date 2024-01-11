@@ -1,7 +1,7 @@
-
+from django.views import generic
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from polls.models import Users
+from .models import Users, Post
 from .form import PostCreateForm 
 
 
@@ -52,4 +52,9 @@ def post_form(request):
         form = PostCreateForm()
     return render (request, "createPost.html", context={"form":form})
 
+
+class PostListView(generic.ListView):
+    model= Post
+    context_object_name="post_list"
+    template_name = "post_list.html"
 

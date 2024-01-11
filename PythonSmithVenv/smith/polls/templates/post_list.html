@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if post_list %}
+        <ul>
+            {% for post in post_list %}
+            <li> 
+                <a href="{{post.get_absolute_url}}">{{post.posted_by}}</a>
+                {{post.posted_by}}
+                {{post.post_content}}
+                {{post.publish_date}}
+                {{post.comments}}
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>no further post</p>
+    {% endif %}
+</body>
+</html>
