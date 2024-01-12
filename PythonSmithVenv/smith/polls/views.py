@@ -2,7 +2,7 @@ from django.views import generic
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from .models import Users, Post
-from .form import PostCreateForm 
+from .form import PostCreateForm, RegisterUserForm
 
 
 def index(request):
@@ -58,3 +58,18 @@ class PostListView(generic.ListView):
     context_object_name="post_list"
     template_name = "post_list.html"
 
+
+def register_form(request):
+    if request.method == "POST":
+        form = RegisterUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/polls/home")
+    else:
+        form = RegisterUserForm()
+    return render (request, "registration/signup.html", context={"form":form})
+
+# class UserListView(generic.ListView):
+#     model= CustomUser
+#     context_object_name="post_list"
+#     template_name = "post_list.html"
