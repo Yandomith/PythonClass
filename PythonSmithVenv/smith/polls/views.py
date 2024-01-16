@@ -8,7 +8,7 @@ from .form import PostCreateForm, RegisterUserForm
 def index(request):
     # return HttpResponse("Hello, world. You're at the polls index.")
     context= {"first_name": "smith" ,"last_name":"haha"}
-    return render(request,'index.html',context)
+    return render(request,'index1.html',context)
 
 def read_data(request):
     user= Users.objects.get(username= "mithyando")
