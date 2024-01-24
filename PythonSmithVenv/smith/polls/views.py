@@ -40,7 +40,7 @@ def  profile(request):
     context= {"first name":firstName,"middle name ": middleName, "lastname ":lastName,"username": userName, "email":email, "password":password}
     new_user= Users(first_name=firstName,middle_name= middleName,  last_name= lastName,username= userName, email=email, password=password)
     new_user.save()
-    return render(request,"profile.html",context)
+    return render(request,"profile1.html",context)
     
 def post_form(request):
     if request.method == "POST":
